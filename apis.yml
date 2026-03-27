@@ -1,0 +1,43 @@
+aid: stitch
+name: Stitch
+description: >-
+  Stitch is an open banking API platform providing unified access to financial
+  data across banks and financial institutions in Africa.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Unified API
+  - Open Banking
+  - Financial Data
+  - Africa
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/stitch/refs/heads/main/apis.yml
+created: '2026-03-27'
+modified: '2026-03-27'
+specificationVersion: '0.19'
+apis:
+  - aid: stitch:stitch
+    name: Stitch
+    description: >-
+      Stitch is an open banking API platform providing unified access to
+      financial data across banks and financial institutions in Africa.
+    humanURL: https://stitch.money/
+    tags:
+      - Unified API
+      - Open Banking
+      - Africa
+    properties:
+      - type: Documentation
+        url: https://stitch.money/docs
+      - type: Getting Started
+        url: https://stitch.money/docs/getting-started
+common:
+  - type: Website
+    url: https://stitch.money/
+  - type: Documentation
+    url: https://stitch.money/docs
+  - type: GitHub Organization
+    url: https://github.com/stitch-money
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
