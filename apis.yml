@@ -6,10 +6,10 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Unified API
-  - Open Banking
-  - Financial Data
   - Africa
+  - Financial Data
+  - Open Banking
+  - Unified API
 url: >-
   https://raw.githubusercontent.com/api-evangelist/stitch/refs/heads/main/apis.yml
 created: '2026-03-27'
@@ -23,9 +23,9 @@ apis:
       financial data across banks and financial institutions in Africa.
     humanURL: https://stitch.money/
     tags:
-      - Unified API
-      - Open Banking
       - Africa
+      - Open Banking
+      - Unified API
     properties:
       - type: Documentation
         url: https://stitch.money/docs
