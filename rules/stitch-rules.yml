@@ -1,0 +1,72 @@
+extends: spectral:oas
+rules:
+  stitch-bearer-auth-required:
+    description: >-
+      All Stitch GraphQL operations must use Bearer token authentication
+      obtained from the OAuth 2.0 token endpoint.
+    message: "Operations must declare BearerAuth security scheme."
+    severity: error
+    given: "$.components.securitySchemes"
+    then:
+      field: BearerAuth
+      function: defined
+
+  stitch-graphql-endpoint-post-only:
+    description: >-
+      The Stitch GraphQL endpoint (/graphql) must only accept POST requests.
+    message: "GraphQL endpoint must use POST method."
+    severity: error
+    given: "$.paths./graphql"
+    then:
+      field: post
+      function: defined
+
+  stitch-response-200-required:
+    description: All Stitch operations must define a 200 success response.
+    message: "Operation '{{operationId}}' is missing a 200 response."
+    severity: error
+    given: "$.paths[*][*]"
+    then:
+      field: responses.200
+      function: defined
+
+  stitch-operationid-camel-case:
+    description: OperationIds must use camelCase.
+    message: "OperationId '{{value}}' must be camelCase."
+    severity: warn
+    given: "$.paths[*][*].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+
+  stitch-tags-title-case:
+    description: All operation tags must use Title Case.
+    message: "Tag '{{value}}' must use Title Case."
+    severity: warn
+    given: "$.paths[*][*].tags[*]"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][a-zA-Z0-9 &-]*$"
+
+  stitch-server-https:
+    description: All Stitch API servers must use HTTPS.
+    message: "Server URL must use HTTPS."
+    severity: error
+    given: "$.servers[*].url"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"
+
+  stitch-token-endpoint-form-encoded:
+    description: >-
+      The Stitch OAuth token endpoint must accept application/x-www-form-urlencoded
+      content type per OAuth 2.0 specification.
+    message: "Token endpoint must accept application/x-www-form-urlencoded."
+    severity: error
+    given: "$.paths./connect/token.post.requestBody.content"
+    then:
+      field: application/x-www-form-urlencoded
+      function: defined

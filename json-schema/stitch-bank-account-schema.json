@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.stitch.money/schema/bank-account",
+  "title": "Stitch Bank Account",
+  "description": "A bank account linked by a user through the Stitch open banking platform.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique account identifier."
+    },
+    "name": {
+      "type": "string",
+      "description": "Account holder name.",
+      "examples": ["John Smith", "Acme Corp"]
+    },
+    "accountNumber": {
+      "type": "string",
+      "description": "Bank account number."
+    },
+    "bankId": {
+      "type": "string",
+      "description": "Bank identifier code.",
+      "examples": ["absa", "fnb", "standard_bank", "capitec", "nedbank"]
+    },
+    "availableBalance": {
+      "$ref": "#/definitions/MoneyAmount",
+      "description": "Available balance for transactions."
+    },
+    "currentBalance": {
+      "$ref": "#/definitions/MoneyAmount",
+      "description": "Current (ledger) balance including pending transactions."
+    }
+  },
+  "required": ["id", "accountNumber", "bankId"],
+  "definitions": {
+    "MoneyAmount": {
+      "type": "object",
+      "properties": {
+        "quantity": { "type": "string", "description": "Amount as decimal string." },
+        "currency": { "type": "string", "enum": ["ZAR", "NGN"] }
+      }
+    }
+  }
+}

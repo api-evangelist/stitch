@@ -1,0 +1,98 @@
+vocabulary:
+  title: Stitch Vocabulary
+  description: >-
+    Domain vocabulary for the Stitch open banking and payments platform covering
+    African financial services, payment methods, bank account data, and disbursements.
+  version: "1.0"
+  created: "2026-05-02"
+  modified: "2026-05-02"
+  source: https://docs.stitch.money/
+
+terms:
+  - term: Pay By Bank
+    definition: >-
+      A payment method enabling customers to pay directly from their bank account
+      via instant EFT (Electronic Funds Transfer), bypassing card networks.
+    aliases: [bank transfer, instant EFT]
+    tags: [Payments, Pay-ins]
+
+  - term: Payment Initiation Request
+    definition: >-
+      A Stitch object representing a payment intent, containing the amount,
+      currency, references, and a redirect URL where the payer completes payment.
+    aliases: [payment request, PIR]
+    tags: [Payments, Core]
+
+  - term: Disbursement
+    definition: >-
+      An outbound payment sent from a merchant or platform to a beneficiary
+      bank account. Used for payouts, refunds, and marketplace settlements.
+    aliases: [payout, outbound payment]
+    tags: [Disbursements, Payouts]
+
+  - term: LinkPay
+    definition: >-
+      Stitch's product that tokenizes user bank accounts to enable secure,
+      one-click repeat payments without re-entering bank credentials.
+    tags: [Payments, Tokenization]
+
+  - term: Capitec Pay
+    definition: >-
+      A payment method available via Stitch that enables customers to pay
+      using their Capitec Bank mobile banking app.
+    tags: [Payments, South Africa]
+
+  - term: DebiCheck
+    definition: >-
+      An authenticated debit order standard used in South Africa where the
+      bank confirms the mandate with the account holder before debits are processed.
+    aliases: [authenticated debit order]
+    tags: [Payments, Recurring, South Africa]
+
+  - term: Manual EFT
+    definition: >-
+      A payment method where customers make a standard bank transfer and Stitch
+      manages the reference reconciliation process.
+    tags: [Payments, EFT]
+
+  - term: Relay Server Specification
+    definition: >-
+      A GraphQL pagination and connection specification that Stitch follows,
+      providing cursor-based pagination via edges, nodes, and pageInfo patterns.
+    tags: [GraphQL, Pagination, Standards]
+
+  - term: Client Credentials
+    definition: >-
+      An OAuth 2.0 grant type used by Stitch for server-to-server API authentication,
+      exchanging a client_id and client_secret for a Bearer access token.
+    tags: [Authentication, OAuth 2.0]
+
+  - term: ZAR
+    definition: >-
+      South African Rand — the primary currency supported by Stitch for
+      payment operations in South Africa.
+    tags: [Currency, South Africa]
+
+  - term: NGN
+    definition: >-
+      Nigerian Naira — the primary currency supported by Stitch for
+      payment operations in Nigeria.
+    tags: [Currency, Nigeria]
+
+  - term: Beneficiary Reference
+    definition: >-
+      A payment reference string displayed on the beneficiary's bank statement
+      to identify the payment source or order.
+    tags: [Payments, Reconciliation]
+
+  - term: Payer Reference
+    definition: >-
+      A reference string displayed in the payer's banking app to identify
+      the purpose of the payment being made.
+    tags: [Payments, Reconciliation]
+
+  - term: Bank Account Linking
+    definition: >-
+      The process by which a user authorizes Stitch to access their bank account
+      data, typically through an OAuth-style consent flow.
+    tags: [Open Banking, Authentication]

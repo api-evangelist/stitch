@@ -1,0 +1,276 @@
+openapi: 3.0.3
+info:
+  title: Stitch API
+  description: >-
+    Stitch is an open banking and payments API platform providing unified access
+    to financial data and payment rails across banks and financial institutions in
+    Africa (South Africa and Nigeria). Stitch uses GraphQL as its primary API,
+    following the Relay Server Specification for pagination. Authentication uses
+    OAuth 2.0 client credentials. This OpenAPI document describes the HTTP transport
+    layer for the Stitch GraphQL endpoint and OAuth token flows.
+  version: '1.0'
+  contact:
+    url: https://stitch.money/
+  termsOfService: https://stitch.money/legal/terms-of-service
+servers:
+  - url: https://api.stitch.money
+    description: Stitch Production API
+  - url: https://id.stitch.money
+    description: Stitch Identity / Auth Server
+tags:
+  - name: Authentication
+    description: OAuth 2.0 token operations.
+  - name: Payments
+    description: Payment initiation and management.
+  - name: Financial Data
+    description: Bank account and transaction data.
+  - name: Disbursements
+    description: Outbound payment and payout operations.
+paths:
+  /connect/token:
+    post:
+      operationId: getAccessToken
+      summary: Get Access Token
+      description: >-
+        Obtain an OAuth 2.0 client credentials access token for authenticating
+        GraphQL API requests. The token is passed as a Bearer token in the
+        Authorization header.
+      tags:
+        - Authentication
+      servers:
+        - url: https://id.stitch.money
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+                - client_id
+                - client_secret
+                - grant_type
+                - audience
+              properties:
+                client_id:
+                  type: string
+                  description: Your Stitch client ID.
+                client_secret:
+                  type: string
+                  description: Your Stitch client secret.
+                grant_type:
+                  type: string
+                  enum: [client_credentials]
+                  description: OAuth 2.0 grant type.
+                audience:
+                  type: string
+                  description: API audience identifier.
+                  example: https://api.stitch.money
+      responses:
+        '200':
+          description: Access token returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+        '400':
+          description: Invalid request parameters.
+        '401':
+          description: Invalid client credentials.
+  /graphql:
+    post:
+      operationId: executeGraphQL
+      summary: Execute GraphQL Query or Mutation
+      description: >-
+        Execute any Stitch GraphQL query or mutation. The Stitch API is GraphQL-first,
+        following the Relay Server Specification. Supports payment initiation,
+        bank account data retrieval, disbursements, and payment status tracking.
+        All operations require a Bearer access token.
+      tags:
+        - Payments
+        - Financial Data
+        - Disbursements
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GraphQLRequest'
+            examples:
+              initiatePayment:
+                summary: Initiate Pay By Bank Payment
+                value:
+                  query: |
+                    mutation InitiatePayment($input: PaymentInitiationRequestInput!) {
+                      clientPaymentInitiationRequestCreate(input: $input) {
+                        paymentInitiationRequest {
+                          id
+                          url
+                          status
+                        }
+                      }
+                    }
+                  variables:
+                    input:
+                      amount: { quantity: "100.00", currency: ZAR }
+                      payerReference: "Order-12345"
+                      beneficiaryReference: "Order-12345"
+                      merchant: "merchant-id"
+              listBankAccounts:
+                summary: List Linked Bank Accounts
+                value:
+                  query: |
+                    query ListBankAccounts {
+                      user {
+                        bankAccounts {
+                          id
+                          name
+                          accountNumber
+                          bankId
+                          availableBalance { quantity currency }
+                          currentBalance { quantity currency }
+                        }
+                      }
+                    }
+      responses:
+        '200':
+          description: GraphQL response returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GraphQLResponse'
+        '401':
+          description: Invalid or missing Bearer token.
+components:
+  schemas:
+    TokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: OAuth 2.0 Bearer access token.
+        token_type:
+          type: string
+          description: Token type (Bearer).
+          example: Bearer
+        expires_in:
+          type: integer
+          description: Token expiry in seconds.
+          example: 3600
+        scope:
+          type: string
+          description: Granted scopes.
+    GraphQLRequest:
+      type: object
+      required:
+        - query
+      properties:
+        query:
+          type: string
+          description: GraphQL query or mutation string.
+        variables:
+          type: object
+          additionalProperties: true
+          description: Variables for the GraphQL operation.
+        operationName:
+          type: string
+          description: Named operation to execute.
+    GraphQLResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          additionalProperties: true
+          description: Response data from the GraphQL operation.
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/GraphQLError'
+    GraphQLError:
+      type: object
+      properties:
+        message:
+          type: string
+        extensions:
+          type: object
+          additionalProperties: true
+    PaymentInitiationRequest:
+      type: object
+      description: A payment initiation request created via the Stitch API.
+      properties:
+        id:
+          type: string
+          description: Unique payment request identifier.
+        url:
+          type: string
+          format: uri
+          description: URL to redirect the payer for payment completion.
+        status:
+          type: string
+          enum: [Pending, Complete, Cancelled, Error]
+          description: Current status of the payment request.
+        amount:
+          $ref: '#/components/schemas/MoneyAmount'
+        created:
+          type: string
+          format: date-time
+          description: Creation timestamp.
+    MoneyAmount:
+      type: object
+      description: A monetary amount with currency.
+      properties:
+        quantity:
+          type: string
+          description: Amount as a string decimal (e.g., "100.00").
+        currency:
+          type: string
+          description: ISO 4217 currency code.
+          enum: [ZAR, NGN]
+    BankAccount:
+      type: object
+      description: A bank account linked by the user.
+      properties:
+        id:
+          type: string
+          description: Account identifier.
+        name:
+          type: string
+          description: Account holder name.
+        accountNumber:
+          type: string
+          description: Bank account number.
+        bankId:
+          type: string
+          description: Bank identifier code.
+        availableBalance:
+          $ref: '#/components/schemas/MoneyAmount'
+        currentBalance:
+          $ref: '#/components/schemas/MoneyAmount'
+    Disbursement:
+      type: object
+      description: An outbound payment disbursement.
+      properties:
+        id:
+          type: string
+          description: Disbursement identifier.
+        status:
+          type: string
+          enum: [Pending, Processing, Complete, Failed]
+          description: Disbursement status.
+        amount:
+          $ref: '#/components/schemas/MoneyAmount'
+        beneficiaryAccountNumber:
+          type: string
+          description: Recipient's bank account number.
+        beneficiaryBankId:
+          type: string
+          description: Recipient's bank identifier.
+        reference:
+          type: string
+          description: Payment reference string.
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 Bearer token from the Stitch identity server.
+security:
+  - BearerAuth: []

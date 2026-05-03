@@ -1,0 +1,32 @@
+{
+  "title": "Stitch Payment Initiation Response Structure",
+  "description": "GraphQL response structure for a Stitch payment initiation request.",
+  "structure": {
+    "data": {
+      "type": "object",
+      "fields": {
+        "clientPaymentInitiationRequestCreate": {
+          "type": "object",
+          "fields": {
+            "paymentInitiationRequest": {
+              "type": "object",
+              "fields": {
+                "id": { "type": "string", "description": "Payment request ID." },
+                "url": { "type": "string", "description": "Payer redirect URL." },
+                "status": { "type": "string", "description": "Payment status." }
+              }
+            }
+          }
+        }
+      }
+    },
+    "errors": {
+      "type": "array",
+      "description": "GraphQL errors if any.",
+      "items": {
+        "message": { "type": "string" },
+        "extensions": { "type": "object" }
+      }
+    }
+  }
+}

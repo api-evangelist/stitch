@@ -1,0 +1,30 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "stitch": "https://api.stitch.money/vocab#",
+    "fibo": "https://spec.edmcouncil.org/fibo/ontology/",
+
+    "PaymentInitiationRequest": "stitch:PaymentInitiationRequest",
+    "BankAccount": "BankAccount",
+    "Transaction": "stitch:Transaction",
+    "Disbursement": "stitch:Disbursement",
+    "MoneyAmount": "MonetaryAmount",
+
+    "payerReference": "stitch:payerReference",
+    "beneficiaryReference": "stitch:beneficiaryReference",
+    "beneficiaryAccountNumber": "stitch:beneficiaryAccountNumber",
+    "beneficiaryBankId": "stitch:beneficiaryBankId",
+    "bankId": "stitch:bankId",
+    "accountNumber": "stitch:accountNumber",
+    "availableBalance": "stitch:availableBalance",
+    "currentBalance": "stitch:currentBalance",
+    "quantity": "value",
+    "currency": "currency",
+
+    "status": "stitch:status",
+    "url": "url",
+    "name": "name",
+    "id": "@id",
+    "created": "dateCreated"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.stitch.money/graphql",
+    "headers": {
+      "Authorization": "Bearer YOUR_ACCESS_TOKEN",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "query": "mutation InitiatePayment($input: PaymentInitiationRequestInput!) { clientPaymentInitiationRequestCreate(input: $input) { paymentInitiationRequest { id url status amount { quantity currency } } } }",
+      "variables": {
+        "input": {
+          "amount": { "quantity": "250.00", "currency": "ZAR" },
+          "payerReference": "Order-98765",
+          "beneficiaryReference": "Order-98765",
+          "merchant": "merchant-id-abc"
+        }
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "data": {
+        "clientPaymentInitiationRequestCreate": {
+          "paymentInitiationRequest": {
+            "id": "pay-req-abc123def456",
+            "url": "https://pay.stitch.money/pay-req-abc123def456",
+            "status": "Pending",
+            "amount": {
+              "quantity": "250.00",
+              "currency": "ZAR"
+            }
+          }
+        }
+      }
+    }
+  }
+}

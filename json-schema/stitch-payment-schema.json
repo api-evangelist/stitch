@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.stitch.money/schema/payment",
+  "title": "Stitch Payment Initiation Request",
+  "description": "A payment initiation request created via the Stitch API.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique payment request identifier."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to redirect the payer for payment completion."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["Pending", "Complete", "Cancelled", "Error"],
+      "description": "Current status of the payment request."
+    },
+    "amount": {
+      "$ref": "#/definitions/MoneyAmount"
+    },
+    "payerReference": {
+      "type": "string",
+      "description": "Reference shown to the payer in their banking app."
+    },
+    "beneficiaryReference": {
+      "type": "string",
+      "description": "Reference shown on the beneficiary bank statement."
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Payment request creation timestamp."
+    }
+  },
+  "required": ["id", "status"],
+  "definitions": {
+    "MoneyAmount": {
+      "type": "object",
+      "properties": {
+        "quantity": {
+          "type": "string",
+          "description": "Amount as a decimal string.",
+          "examples": ["100.00", "1500.50"]
+        },
+        "currency": {
+          "type": "string",
+          "enum": ["ZAR", "NGN"],
+          "description": "ISO 4217 currency code."
+        }
+      },
+      "required": ["quantity", "currency"]
+    }
+  }
+}
