@@ -114,11 +114,11 @@ common:
     url: https://stitch.money/
   - type: Documentation
     url: https://docs.stitch.money/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/stitch-money
-  - type: Sign Up
+  - type: SignUp
     url: https://stitch.money/contact
-  - type: Status
+  - type: StatusPage
     url: https://status.stitch.money/
   - type: Features
     data:
