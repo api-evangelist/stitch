@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Stitch API — Payments
+  description: 'Stitch API — Payments. 1 operations. Lead operation: Execute GraphQL Query or Mutation. Self-contained Naftiko
+    capability covering one Stitch business surface.'
+  tags:
+  - Stitch
+  - Payments
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    STITCH_API_KEY: STITCH_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: stitch-payments
+    baseUri: https://api.stitch.money
+    description: Stitch API — Payments business capability. Self-contained, no shared references.
+    resources:
+    - name: graphql
+      path: /graphql
+      operations:
+      - name: executegraphql
+        method: POST
+        description: Execute GraphQL Query or Mutation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.STITCH_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: stitch-payments-rest
+    port: 8080
+    description: REST adapter for Stitch API — Payments. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/graphql
+      name: graphql
+      description: REST surface for graphql.
+      operations:
+      - method: POST
+        name: executegraphql
+        description: Execute GraphQL Query or Mutation
+        call: stitch-payments.executegraphql
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: stitch-payments-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Stitch API — Payments. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: execute-graphql-query-mutation
+      description: Execute GraphQL Query or Mutation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: stitch-payments.executegraphql
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
