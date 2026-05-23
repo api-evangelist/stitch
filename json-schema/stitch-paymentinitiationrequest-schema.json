@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PaymentInitiationRequest",
+  "title": "PaymentInitiationRequest",
+  "type": "object",
+  "description": "A payment initiation request created via the Stitch API.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique payment request identifier."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to redirect the payer for payment completion."
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Pending",
+        "Complete",
+        "Cancelled",
+        "Error"
+      ],
+      "description": "Current status of the payment request."
+    },
+    "amount": {
+      "$ref": "#/components/schemas/MoneyAmount"
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Creation timestamp."
+    }
+  }
+}

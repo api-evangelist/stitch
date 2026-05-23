@@ -1,0 +1,82 @@
+{
+  "provider": "Stitch",
+  "providerId": "stitch",
+  "kind": "json-structure",
+  "description": "Structural overview of the Stitch API surface; extracted from openapi/.",
+  "schemaCount": 8,
+  "operationCount": 2,
+  "schemas": [
+    {
+      "name": "TokenResponse",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "GraphQLRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "query"
+      ]
+    },
+    {
+      "name": "GraphQLResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "GraphQLError",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "PaymentInitiationRequest",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "MoneyAmount",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "BankAccount",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "Disbursement",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "POST",
+      "path": "/connect/token",
+      "operationId": "getAccessToken",
+      "summary": "Get Access Token",
+      "tags": [
+        "Authentication"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/graphql",
+      "operationId": "executeGraphQL",
+      "summary": "Execute GraphQL Query or Mutation",
+      "tags": [
+        "Payments",
+        "Financial Data",
+        "Disbursements"
+      ]
+    }
+  ]
+}

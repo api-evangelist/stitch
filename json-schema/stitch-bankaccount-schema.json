@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BankAccount",
+  "title": "BankAccount",
+  "type": "object",
+  "description": "A bank account linked by the user.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Account identifier."
+    },
+    "name": {
+      "type": "string",
+      "description": "Account holder name."
+    },
+    "accountNumber": {
+      "type": "string",
+      "description": "Bank account number."
+    },
+    "bankId": {
+      "type": "string",
+      "description": "Bank identifier code."
+    },
+    "availableBalance": {
+      "$ref": "#/components/schemas/MoneyAmount"
+    },
+    "currentBalance": {
+      "$ref": "#/components/schemas/MoneyAmount"
+    }
+  }
+}

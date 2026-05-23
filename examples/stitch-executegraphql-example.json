@@ -1,0 +1,34 @@
+{
+  "operationId": "executeGraphQL",
+  "method": "POST",
+  "path": "/graphql",
+  "summary": "Execute GraphQL Query or Mutation",
+  "requestExamples": [
+    {
+      "contentType": "application/json",
+      "name": "initiatePayment",
+      "example": {
+        "query": "mutation InitiatePayment($input: PaymentInitiationRequestInput!) {\n  clientPaymentInitiationRequestCreate(input: $input) {\n    paymentInitiationRequest {\n      id\n      url\n      status\n    }\n  }\n}\n",
+        "variables": {
+          "input": {
+            "amount": {
+              "quantity": "100.00",
+              "currency": "ZAR"
+            },
+            "payerReference": "Order-12345",
+            "beneficiaryReference": "Order-12345",
+            "merchant": "merchant-id"
+          }
+        }
+      }
+    },
+    {
+      "contentType": "application/json",
+      "name": "listBankAccounts",
+      "example": {
+        "query": "query ListBankAccounts {\n  user {\n    bankAccounts {\n      id\n      name\n      accountNumber\n      bankId\n      availableBalance { quantity currency }\n      currentBalance { quantity currency }\n    }\n  }\n}\n"
+      }
+    }
+  ],
+  "responseExamples": []
+}

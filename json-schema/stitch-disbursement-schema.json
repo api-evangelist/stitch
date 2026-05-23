@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Disbursement",
+  "title": "Disbursement",
+  "type": "object",
+  "description": "An outbound payment disbursement.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Disbursement identifier."
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Pending",
+        "Processing",
+        "Complete",
+        "Failed"
+      ],
+      "description": "Disbursement status."
+    },
+    "amount": {
+      "$ref": "#/components/schemas/MoneyAmount"
+    },
+    "beneficiaryAccountNumber": {
+      "type": "string",
+      "description": "Recipient's bank account number."
+    },
+    "beneficiaryBankId": {
+      "type": "string",
+      "description": "Recipient's bank identifier."
+    },
+    "reference": {
+      "type": "string",
+      "description": "Payment reference string."
+    }
+  }
+}

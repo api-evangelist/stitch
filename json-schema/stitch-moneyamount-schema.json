@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MoneyAmount",
+  "title": "MoneyAmount",
+  "type": "object",
+  "description": "A monetary amount with currency.",
+  "properties": {
+    "quantity": {
+      "type": "string",
+      "description": "Amount as a string decimal (e.g., \"100.00\")."
+    },
+    "currency": {
+      "type": "string",
+      "description": "ISO 4217 currency code.",
+      "enum": [
+        "ZAR",
+        "NGN"
+      ]
+    }
+  }
+}

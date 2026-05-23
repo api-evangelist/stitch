@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GraphQLResponse",
+  "title": "GraphQLResponse",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Response data from the GraphQL operation."
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/GraphQLError"
+      }
+    }
+  }
+}
