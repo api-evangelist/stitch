@@ -1,0 +1,837 @@
+{
+  "item": [
+    {
+      "id": "24d4263a-28af-4bed-a329-cc11e3048617",
+      "name": "Authentication",
+      "description": {
+        "content": "OAuth 2.0 token operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "964877a7-6755-4f40-81d2-767de983995c",
+          "name": "Get Access Token",
+          "request": {
+            "name": "Get Access Token",
+            "description": {
+              "content": "Obtain an OAuth 2.0 client credentials access token for authenticating GraphQL API requests. The token is passed as a Bearer token in the Authorization header.",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "connect",
+                "token"
+              ],
+              "host": [
+                "id",
+                "stitch",
+                "money"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>",
+                  "description": "(Required) Your Stitch client ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "client_secret",
+                  "value": "<string>",
+                  "description": "(Required) Your Stitch client secret."
+                },
+                {
+                  "disabled": false,
+                  "key": "grant_type",
+                  "value": "<string>",
+                  "description": "(Required) OAuth 2.0 grant type."
+                },
+                {
+                  "disabled": false,
+                  "key": "audience",
+                  "value": "<string>",
+                  "description": "(Required) API audience identifier."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4fb46b36-bb91-4a34-abae-398fe260d0fc",
+              "name": "Access token returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "connect",
+                    "token"
+                  ],
+                  "host": [
+                    "id",
+                    "stitch",
+                    "money"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your Stitch client ID.",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your Stitch client secret.",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) OAuth 2.0 grant type.",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API audience identifier.",
+                        "type": "text/plain"
+                      },
+                      "key": "audience",
+                      "value": "https://api.stitch.money"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 3600,\n  \"scope\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e024ccc4-af97-420a-a570-1f1861dacce7",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "connect",
+                    "token"
+                  ],
+                  "host": [
+                    "id",
+                    "stitch",
+                    "money"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your Stitch client ID.",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your Stitch client secret.",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) OAuth 2.0 grant type.",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API audience identifier.",
+                        "type": "text/plain"
+                      },
+                      "key": "audience",
+                      "value": "https://api.stitch.money"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ed34783f-03d7-4717-86a8-fafe375cd0ac",
+              "name": "Invalid client credentials.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "connect",
+                    "token"
+                  ],
+                  "host": [
+                    "id",
+                    "stitch",
+                    "money"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your Stitch client ID.",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your Stitch client secret.",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) OAuth 2.0 grant type.",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API audience identifier.",
+                        "type": "text/plain"
+                      },
+                      "key": "audience",
+                      "value": "https://api.stitch.money"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "cca46eb9-21ba-49d2-a133-68136aeabf90",
+      "name": "Payments",
+      "description": {
+        "content": "Payment initiation and management.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "53569c4a-de28-45f4-a662-6f076e9dea06",
+          "name": "Execute GraphQL Query or Mutation",
+          "request": {
+            "name": "Execute GraphQL Query or Mutation",
+            "description": {
+              "content": "Execute any Stitch GraphQL query or mutation. The Stitch API is GraphQL-first, following the Relay Server Specification. Supports payment initiation, bank account data retrieval, disbursements, and payment status tracking. All operations require a Bearer access token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "graphql"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"variables\": {\n    \"key_0\": 880,\n    \"key_1\": false\n  },\n  \"operationName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ffd771bd-1385-4a91-af0b-d3d085c63715",
+              "name": "GraphQL response returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "graphql"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"mutation InitiatePayment($input: PaymentInitiationRequestInput!) {\\n  clientPaymentInitiationRequestCreate(input: $input) {\\n    paymentInitiationRequest {\\n      id\\n      url\\n      status\\n    }\\n  }\\n}\\n\",\n  \"variables\": {\n    \"input\": {\n      \"amount\": {\n        \"quantity\": \"100.00\",\n        \"currency\": \"ZAR\"\n      },\n      \"payerReference\": \"Order-12345\",\n      \"beneficiaryReference\": \"Order-12345\",\n      \"merchant\": \"merchant-id\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": 6312.916783587358,\n    \"key_1\": 7171,\n    \"key_2\": false\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"extensions\": {\n        \"key_0\": false,\n        \"key_1\": 5765\n      }\n    },\n    {\n      \"message\": \"string\",\n      \"extensions\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": 2865.046986844797,\n        \"key_3\": true\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "27ab658f-5c4c-4abb-b4ec-fb66a474f1a7",
+              "name": "Invalid or missing Bearer token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "graphql"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"mutation InitiatePayment($input: PaymentInitiationRequestInput!) {\\n  clientPaymentInitiationRequestCreate(input: $input) {\\n    paymentInitiationRequest {\\n      id\\n      url\\n      status\\n    }\\n  }\\n}\\n\",\n  \"variables\": {\n    \"input\": {\n      \"amount\": {\n        \"quantity\": \"100.00\",\n        \"currency\": \"ZAR\"\n      },\n      \"payerReference\": \"Order-12345\",\n      \"beneficiaryReference\": \"Order-12345\",\n      \"merchant\": \"merchant-id\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9b884422-7b98-4dfa-9778-8c4ff1dfc5d8",
+      "name": "Financial Data",
+      "description": {
+        "content": "Bank account and transaction data.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dd94c847-6b87-4df8-9ffb-f8b3492630ab",
+          "name": "Execute GraphQL Query or Mutation",
+          "request": {
+            "name": "Execute GraphQL Query or Mutation",
+            "description": {
+              "content": "Execute any Stitch GraphQL query or mutation. The Stitch API is GraphQL-first, following the Relay Server Specification. Supports payment initiation, bank account data retrieval, disbursements, and payment status tracking. All operations require a Bearer access token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "graphql"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"variables\": {\n    \"key_0\": 880,\n    \"key_1\": false\n  },\n  \"operationName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a20899be-ec36-4d2a-b305-bc294d60c8e5",
+              "name": "GraphQL response returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "graphql"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"mutation InitiatePayment($input: PaymentInitiationRequestInput!) {\\n  clientPaymentInitiationRequestCreate(input: $input) {\\n    paymentInitiationRequest {\\n      id\\n      url\\n      status\\n    }\\n  }\\n}\\n\",\n  \"variables\": {\n    \"input\": {\n      \"amount\": {\n        \"quantity\": \"100.00\",\n        \"currency\": \"ZAR\"\n      },\n      \"payerReference\": \"Order-12345\",\n      \"beneficiaryReference\": \"Order-12345\",\n      \"merchant\": \"merchant-id\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": 6312.916783587358,\n    \"key_1\": 7171,\n    \"key_2\": false\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"extensions\": {\n        \"key_0\": false,\n        \"key_1\": 5765\n      }\n    },\n    {\n      \"message\": \"string\",\n      \"extensions\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": 2865.046986844797,\n        \"key_3\": true\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df730211-cc98-4fb6-91c6-02e914a90963",
+              "name": "Invalid or missing Bearer token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "graphql"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"mutation InitiatePayment($input: PaymentInitiationRequestInput!) {\\n  clientPaymentInitiationRequestCreate(input: $input) {\\n    paymentInitiationRequest {\\n      id\\n      url\\n      status\\n    }\\n  }\\n}\\n\",\n  \"variables\": {\n    \"input\": {\n      \"amount\": {\n        \"quantity\": \"100.00\",\n        \"currency\": \"ZAR\"\n      },\n      \"payerReference\": \"Order-12345\",\n      \"beneficiaryReference\": \"Order-12345\",\n      \"merchant\": \"merchant-id\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "6a74020c-a75d-46a4-a192-261bc5385f16",
+      "name": "Disbursements",
+      "description": {
+        "content": "Outbound payment and payout operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "023b0caf-32c4-4b89-a07d-cff9be984ac1",
+          "name": "Execute GraphQL Query or Mutation",
+          "request": {
+            "name": "Execute GraphQL Query or Mutation",
+            "description": {
+              "content": "Execute any Stitch GraphQL query or mutation. The Stitch API is GraphQL-first, following the Relay Server Specification. Supports payment initiation, bank account data retrieval, disbursements, and payment status tracking. All operations require a Bearer access token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "graphql"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"variables\": {\n    \"key_0\": 880,\n    \"key_1\": false\n  },\n  \"operationName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1dc6df4c-ebcb-4e77-95c7-08e7e051475b",
+              "name": "GraphQL response returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "graphql"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"mutation InitiatePayment($input: PaymentInitiationRequestInput!) {\\n  clientPaymentInitiationRequestCreate(input: $input) {\\n    paymentInitiationRequest {\\n      id\\n      url\\n      status\\n    }\\n  }\\n}\\n\",\n  \"variables\": {\n    \"input\": {\n      \"amount\": {\n        \"quantity\": \"100.00\",\n        \"currency\": \"ZAR\"\n      },\n      \"payerReference\": \"Order-12345\",\n      \"beneficiaryReference\": \"Order-12345\",\n      \"merchant\": \"merchant-id\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": 4783,\n    \"key_1\": 6315,\n    \"key_2\": 8378\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"extensions\": {\n        \"key_0\": \"string\",\n        \"key_1\": 2531,\n        \"key_2\": \"string\",\n        \"key_3\": \"string\"\n      }\n    },\n    {\n      \"message\": \"string\",\n      \"extensions\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6c2aa327-6b67-46ce-9aba-2f8dd160f91e",
+              "name": "Invalid or missing Bearer token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "graphql"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"mutation InitiatePayment($input: PaymentInitiationRequestInput!) {\\n  clientPaymentInitiationRequestCreate(input: $input) {\\n    paymentInitiationRequest {\\n      id\\n      url\\n      status\\n    }\\n  }\\n}\\n\",\n  \"variables\": {\n    \"input\": {\n      \"amount\": {\n        \"quantity\": \"100.00\",\n        \"currency\": \"ZAR\"\n      },\n      \"payerReference\": \"Order-12345\",\n      \"beneficiaryReference\": \"Order-12345\",\n      \"merchant\": \"merchant-id\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.stitch.money",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3cc4abf7-8793-4d79-a3a9-da8a336bf099",
+    "name": "Stitch API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Stitch is an open banking and payments API platform providing unified access to financial data and payment rails across banks and financial institutions in Africa (South Africa and Nigeria). Stitch uses GraphQL as its primary API, following the Relay Server Specification for pagination. Authentication uses OAuth 2.0 client credentials. This OpenAPI document describes the HTTP transport layer for the Stitch GraphQL endpoint and OAuth token flows.",
+      "type": "text/plain"
+    }
+  }
+}
