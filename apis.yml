@@ -5,7 +5,7 @@ description: >-
   across banks and financial institutions in Africa, primarily South Africa and Nigeria. Stitch enables businesses to
   accept payments via multiple channels, access bank account data, and issue disbursements through a single GraphQL API.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Africa
 - Financial Data
