@@ -127,7 +127,7 @@ common:
   url: https://docs.stitch.money/
 - type: GitHubOrganization
   url: https://github.com/stitch-money
-- type: SignUp
+- type: Signup
   url: https://stitch.money/contact
 - type: StatusPage
   url: https://status.stitch.money/
