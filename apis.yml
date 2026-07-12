@@ -119,6 +119,12 @@ apis:
   - type: Documentation
     url: https://docs.stitch.money/
 common:
+- type: VulnerabilityDisclosure
+  url: security/stitch-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/stitch-domain-security.yml
+- type: Authentication
+  url: authentication/stitch-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/stitchdata
 - type: Website
@@ -131,6 +137,8 @@ common:
   url: https://stitch.money/contact
 - type: StatusPage
   url: https://status.stitch.money/
+- type: Blog
+  url: https://stitch.money/blog
 - type: Features
   data:
   - 'Stitch (Talend / Qlik): hundreds of services across Data Integration'
