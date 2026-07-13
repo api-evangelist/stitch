@@ -1,0 +1,21 @@
+{
+  "repo": "stitch",
+  "feeds": [
+    {
+      "source": "https://stitch.money/blog",
+      "feed_url": "https://stitch.money/blog/rss.xml",
+      "title": "",
+      "saved": 2,
+      "method": "discovered"
+    },
+    {
+      "source": "https://status.stitch.money/",
+      "feed_url": "https://status.stitch.money/feed.rss",
+      "title": "",
+      "saved": 5,
+      "method": "discovered"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 32
+}
