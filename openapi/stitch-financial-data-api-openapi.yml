@@ -1,0 +1,99 @@
+openapi: 3.0.3
+info:
+  title: Stitch Authentication Financial Data API
+  description: Stitch is an open banking and payments API platform providing unified access to financial data and payment rails across banks and financial institutions in Africa (South Africa and Nigeria). Stitch uses GraphQL as its primary API, following the Relay Server Specification for pagination. Authentication uses OAuth 2.0 client credentials. This OpenAPI document describes the HTTP transport layer for the Stitch GraphQL endpoint and OAuth token flows.
+  version: '1.0'
+  contact:
+    url: https://stitch.money/
+  termsOfService: https://stitch.money/legal/terms-of-service
+servers:
+- url: https://api.stitch.money
+  description: Stitch Production API
+- url: https://id.stitch.money
+  description: Stitch Identity / Auth Server
+security:
+- BearerAuth: []
+tags:
+- name: Financial Data
+  description: Bank account and transaction data.
+paths:
+  /graphql:
+    post:
+      operationId: executeGraphQL
+      summary: Execute GraphQL Query or Mutation
+      description: Execute any Stitch GraphQL query or mutation. The Stitch API is GraphQL-first, following the Relay Server Specification. Supports payment initiation, bank account data retrieval, disbursements, and payment status tracking. All operations require a Bearer access token.
+      tags:
+      - Financial Data
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GraphQLRequest'
+            examples:
+              initiatePayment:
+                summary: Initiate Pay By Bank Payment
+                value:
+                  query: "mutation InitiatePayment($input: PaymentInitiationRequestInput!) {\n  clientPaymentInitiationRequestCreate(input: $input) {\n    paymentInitiationRequest {\n      id\n      url\n      status\n    }\n  }\n}\n"
+                  variables:
+                    input:
+                      amount:
+                        quantity: '100.00'
+                        currency: ZAR
+                      payerReference: Order-12345
+                      beneficiaryReference: Order-12345
+                      merchant: merchant-id
+              listBankAccounts:
+                summary: List Linked Bank Accounts
+                value:
+                  query: "query ListBankAccounts {\n  user {\n    bankAccounts {\n      id\n      name\n      accountNumber\n      bankId\n      availableBalance { quantity currency }\n      currentBalance { quantity currency }\n    }\n  }\n}\n"
+      responses:
+        '200':
+          description: GraphQL response returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GraphQLResponse'
+        '401':
+          description: Invalid or missing Bearer token.
+components:
+  schemas:
+    GraphQLResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          additionalProperties: true
+          description: Response data from the GraphQL operation.
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/GraphQLError'
+    GraphQLRequest:
+      type: object
+      required:
+      - query
+      properties:
+        query:
+          type: string
+          description: GraphQL query or mutation string.
+        variables:
+          type: object
+          additionalProperties: true
+          description: Variables for the GraphQL operation.
+        operationName:
+          type: string
+          description: Named operation to execute.
+    GraphQLError:
+      type: object
+      properties:
+        message:
+          type: string
+        extensions:
+          type: object
+          additionalProperties: true
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 Bearer token from the Stitch identity server.

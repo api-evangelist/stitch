@@ -1,0 +1,90 @@
+openapi: 3.0.3
+info:
+  title: Stitch Authentication API
+  description: Stitch is an open banking and payments API platform providing unified access to financial data and payment rails across banks and financial institutions in Africa (South Africa and Nigeria). Stitch uses GraphQL as its primary API, following the Relay Server Specification for pagination. Authentication uses OAuth 2.0 client credentials. This OpenAPI document describes the HTTP transport layer for the Stitch GraphQL endpoint and OAuth token flows.
+  version: '1.0'
+  contact:
+    url: https://stitch.money/
+  termsOfService: https://stitch.money/legal/terms-of-service
+servers:
+- url: https://api.stitch.money
+  description: Stitch Production API
+- url: https://id.stitch.money
+  description: Stitch Identity / Auth Server
+security:
+- BearerAuth: []
+tags:
+- name: Authentication
+  description: OAuth 2.0 token operations.
+paths:
+  /connect/token:
+    post:
+      operationId: getAccessToken
+      summary: Get Access Token
+      description: Obtain an OAuth 2.0 client credentials access token for authenticating GraphQL API requests. The token is passed as a Bearer token in the Authorization header.
+      tags:
+      - Authentication
+      servers:
+      - url: https://id.stitch.money
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - client_id
+              - client_secret
+              - grant_type
+              - audience
+              properties:
+                client_id:
+                  type: string
+                  description: Your Stitch client ID.
+                client_secret:
+                  type: string
+                  description: Your Stitch client secret.
+                grant_type:
+                  type: string
+                  enum:
+                  - client_credentials
+                  description: OAuth 2.0 grant type.
+                audience:
+                  type: string
+                  description: API audience identifier.
+                  example: https://api.stitch.money
+      responses:
+        '200':
+          description: Access token returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+        '400':
+          description: Invalid request parameters.
+        '401':
+          description: Invalid client credentials.
+components:
+  schemas:
+    TokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: OAuth 2.0 Bearer access token.
+        token_type:
+          type: string
+          description: Token type (Bearer).
+          example: Bearer
+        expires_in:
+          type: integer
+          description: Token expiry in seconds.
+          example: 3600
+        scope:
+          type: string
+          description: Granted scopes.
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 Bearer token from the Stitch identity server.
