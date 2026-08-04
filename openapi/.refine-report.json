@@ -1,0 +1,20 @@
+{
+  "provider": "stitch",
+  "sources": [
+    "stitch-authentication-api-openapi.yml",
+    "stitch-disbursements-api-openapi.yml",
+    "stitch-financial-data-api-openapi.yml",
+    "stitch-payments-api-openapi.yml"
+  ],
+  "outputs": [
+    "stitch-authentication-api-openapi.yml",
+    "stitch-disbursements-api-openapi.yml",
+    "stitch-financial-data-api-openapi.yml",
+    "stitch-payments-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
