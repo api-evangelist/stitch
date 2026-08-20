@@ -24,6 +24,14 @@ tags:
 - Financial Data
 - Open Banking
 - Payments
+- Unified-API
+- South Africa
+- Nigeria
+tags_raw:
+- Africa
+- Financial Data
+- Open Banking
+- Payments
 - Unified API
 - South Africa
 - Nigeria
@@ -39,6 +47,10 @@ apis:
     bank accounts in South Africa and Nigeria.
   humanURL: https://docs.stitch.money/
   tags:
+  - Payments
+  - Bank Transfer
+  - Payins
+  tags_raw:
   - Payments
   - Bank Transfer
   - Pay-ins
@@ -65,6 +77,10 @@ apis:
     the Stitch unified platform.
   humanURL: https://docs.stitch.money/
   tags:
+  - Payments
+  - Card Payments
+  - Payins
+  tags_raw:
   - Payments
   - Card Payments
   - Pay-ins
