@@ -5,14 +5,14 @@
       "source": "https://stitch.money/blog/rss.xml",
       "feed_url": "https://stitch.money/blog/rss.xml",
       "title": "",
-      "saved": 3,
+      "saved": 0,
       "method": "feed"
     },
     {
       "source": "https://status.stitch.money/feed.rss",
       "feed_url": "https://status.stitch.money/feed.rss",
       "title": "",
-      "saved": 4,
+      "saved": 0,
       "method": "feed"
     },
     {
@@ -23,6 +23,6 @@
       "method": "discovered"
     }
   ],
-  "fetched": "2026-08-15T12:11:08Z",
-  "post_count": 115
+  "fetched": "2026-08-22T20:20:02Z",
+  "post_count": 118
 }
