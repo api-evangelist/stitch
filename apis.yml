@@ -142,36 +142,6 @@ apis:
     url: https://api.stitch.money/graphql
   - type: GraphQL
     url: graphql/stitch-graphql.md
-- aid: stitch:stitch-disbursements-api
-  name: Stitch Disbursements API
-  description: Outbound payment and payout operations.
-  humanURL: https://docs.stitch.money/
-  tags:
-  - Disbursements
-  properties:
-  - type: OpenAPI
-    url: openapi/stitch-disbursements-api-openapi.yml
-  - type: Documentation
-    url: https://docs.stitch.money/
-  - type: GraphQL
-    url: https://api.stitch.money/graphql
-  - type: GraphQL
-    url: graphql/stitch-graphql.md
-- aid: stitch:stitch-financial-data-api
-  name: Stitch Financial Data API
-  description: Bank account and transaction data.
-  humanURL: https://docs.stitch.money/
-  tags:
-  - Financial Data
-  properties:
-  - type: OpenAPI
-    url: openapi/stitch-financial-data-api-openapi.yml
-  - type: Documentation
-    url: https://docs.stitch.money/
-  - type: GraphQL
-    url: https://api.stitch.money/graphql
-  - type: GraphQL
-    url: graphql/stitch-graphql.md
 - aid: stitch:stitch-payments-api
   name: Stitch Payments API
   description: Payment initiation and management.
