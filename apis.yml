@@ -61,7 +61,7 @@ apis:
   tags:
   - Payments
   - Bank Transfer
-  - Payins
+  - Pay-ins
   tags_raw:
   - Payments
   - Bank Transfer
@@ -91,7 +91,7 @@ apis:
   tags:
   - Payments
   - Card Payments
-  - Payins
+  - Pay-ins
   tags_raw:
   - Payments
   - Card Payments
