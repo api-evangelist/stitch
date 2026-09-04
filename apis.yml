@@ -1,9 +1,9 @@
 aid: stitch
 name: Stitch
-description: >-
-  Stitch is an open banking and payments API platform providing unified access to financial data and payment rails
-  across banks and financial institutions in Africa, primarily South Africa and Nigeria. Stitch enables businesses to
-  accept payments via multiple channels, access bank account data, and issue disbursements through a single GraphQL API.
+description: Stitch is an open banking and payments API platform providing unified access to financial data and
+  payment rails across banks and financial institutions in Africa, primarily South Africa and Nigeria. Stitch enables
+  businesses to accept payments via multiple channels, access bank account data, and issue disbursements through
+  a single GraphQL API.
 type: Index
 deliveryModel:
   model: saas
@@ -24,11 +24,12 @@ accessModel:
   try_now: true
   public: false
   label: Free · Self-serve signup
-  confidence: high
+  confidence: medium
   source:
   - plans
   - authentication
-  generated: '2026-07-22'
+  - security
+  generated: '2026-09-03'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/stitch.png
 tags:
@@ -54,8 +55,7 @@ specificationVersion: '0.23'
 apis:
 - aid: stitch:stitch-pay-by-bank
   name: Stitch Pay By Bank
-  description: >-
-    Stitch Pay By Bank enables merchants to accept instant bank transfer payments directly from customers'
+  description: Stitch Pay By Bank enables merchants to accept instant bank transfer payments directly from customers'
     bank accounts in South Africa and Nigeria.
   humanURL: https://docs.stitch.money/
   tags:
@@ -71,9 +71,8 @@ apis:
     url: https://docs.stitch.money/
 - aid: stitch:stitch-capitec-pay
   name: Stitch Capitec Pay
-  description: >-
-    Stitch integration with Capitec Bank's Capitec Pay payment method, enabling customers to pay via Capitec
-    mobile banking.
+  description: Stitch integration with Capitec Bank's Capitec Pay payment method, enabling customers to pay via
+    Capitec mobile banking.
   humanURL: https://docs.stitch.money/
   tags:
   - Payments
@@ -84,8 +83,7 @@ apis:
     url: https://docs.stitch.money/
 - aid: stitch:stitch-card-payments
   name: Stitch Card Payments
-  description: >-
-    Stitch card payment processing enabling businesses to accept debit and credit card payments through
+  description: Stitch card payment processing enabling businesses to accept debit and credit card payments through
     the Stitch unified platform.
   humanURL: https://docs.stitch.money/
   tags:
@@ -101,8 +99,7 @@ apis:
     url: https://docs.stitch.money/
 - aid: stitch:stitch-debicheck
   name: Stitch DebiCheck
-  description: >-
-    Stitch DebiCheck integration providing authenticated debit orders for recurring payment collection
+  description: Stitch DebiCheck integration providing authenticated debit orders for recurring payment collection
     in South Africa.
   humanURL: https://docs.stitch.money/
   tags:
@@ -115,8 +112,7 @@ apis:
     url: https://docs.stitch.money/
 - aid: stitch:stitch-manual-eft
   name: Stitch Manual EFT
-  description: >-
-    Stitch Manual EFT (Electronic Funds Transfer) enabling customers to pay via standard bank EFT with
+  description: Stitch Manual EFT (Electronic Funds Transfer) enabling customers to pay via standard bank EFT with
     Stitch's streamlined reference management.
   humanURL: https://docs.stitch.money/
   tags:
@@ -128,8 +124,7 @@ apis:
     url: https://docs.stitch.money/
 - aid: stitch:stitch-disbursements
   name: Stitch Disbursements
-  description: >-
-    Stitch Disbursements (Payouts) API enabling businesses to programmatically send funds to bank accounts,
+  description: Stitch Disbursements (Payouts) API enabling businesses to programmatically send funds to bank accounts,
     enabling mass payments, refunds, and marketplace disbursements.
   humanURL: https://docs.stitch.money/
   tags:
@@ -169,6 +164,34 @@ apis:
     url: https://api.stitch.money/graphql
   - type: GraphQL
     url: graphql/stitch-graphql.md
+- aid: stitch:stitch-money-graphql-api
+  name: Stitch GraphQL API
+  description: The GraphQL API from Stitch — 1 operation(s) for graphql.
+  humanURL: https://docs.stitch.money/payment-products/payins/paybybank/integration-process
+  baseURL: https://api.stitch.money/graphql
+  tags:
+  - GraphQL
+  properties:
+  - type: OpenAPI
+    url: openapi/stitch-money-graphql-api-openapi.yml
+  - type: Documentation
+    url: https://docs.stitch.money/payment-products/payins/paybybank/integration-process
+  - type: APIReference
+    url: https://docs.stitch.money/api
+  - type: GraphQL
+    url: graphql/stitch-money-graphql.md
+  - type: Postman
+    url: collections/stitch-money.postman_collection.json
+  - type: Documentation
+    url: https://docs.stitch.money/payment-products/bank-account-verification/integration-process
+  - type: Documentation
+    url: https://stitch.money/blog/how-to-integrate-stitch-using-graphql
+  - type: Documentation
+    url: https://docs.stitch.money/payment-products/payouts/disbursements
+  - type: Documentation
+    url: https://docs.stitch.money/payment-products/payouts/refunds
+  - type: Documentation
+    url: https://docs.stitch.money/graphql
 common:
 - type: AgenticAccess
   url: agentic-access/stitch-agentic-access.yml
@@ -206,6 +229,10 @@ common:
   - https://www.stitchdata.com/pricing/
   - https://focus.finops.org/
   updated: '2026-05-04'
+- type: GitHubOrganization
+  url: https://github.com/Stitch-Money
+- url: https://stitch.money/blog/rss.xml
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
