@@ -61,8 +61,8 @@ apis:
   humanURL: https://docs.stitch.money/
   tags:
   - Payments
-  - Bank Transfer
-  - Payins
+  - Bank Transfers
+  - Pay-In
   tags_raw:
   - Payments
   - Bank Transfer
@@ -92,7 +92,7 @@ apis:
   tags:
   - Payments
   - Card Payments
-  - Payins
+  - Pay-In
   tags_raw:
   - Payments
   - Card Payments
@@ -123,6 +123,10 @@ apis:
   tags:
   - Payments
   - EFT
+  - Bank Transfers
+  tags_raw:
+  - Payments
+  - EFT
   - Bank Transfer
   properties:
   - type: Documentation
@@ -134,6 +138,10 @@ apis:
     enabling mass payments, refunds, and marketplace disbursements.
   humanURL: https://docs.stitch.money/
   tags:
+  - Payouts
+  - Disbursements
+  - Bank Transfers
+  tags_raw:
   - Payouts
   - Disbursements
   - Bank Transfer
