@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Stitch Authentication Payments API
+  title: Stitch Payments API
   description: Stitch is an open banking and payments API platform providing unified access to financial data and payment rails across banks and financial institutions in Africa (South Africa and Nigeria). Stitch uses GraphQL as its primary API, following the Relay Server Specification for pagination. Authentication uses OAuth 2.0 client credentials. This OpenAPI document describes the HTTP transport layer for the Stitch GraphQL endpoint and OAuth token flows.
   version: '1.0'
   contact:
@@ -58,6 +58,14 @@ paths:
           description: Invalid or missing Bearer token.
 components:
   schemas:
+    GraphQLError:
+      type: object
+      properties:
+        message:
+          type: string
+        extensions:
+          type: object
+          additionalProperties: true
     GraphQLResponse:
       type: object
       properties:
@@ -84,14 +92,6 @@ components:
         operationName:
           type: string
           description: Named operation to execute.
-    GraphQLError:
-      type: object
-      properties:
-        message:
-          type: string
-        extensions:
-          type: object
-          additionalProperties: true
   securitySchemes:
     BearerAuth:
       type: http

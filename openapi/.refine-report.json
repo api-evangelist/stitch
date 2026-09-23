@@ -1,20 +1,23 @@
 {
   "provider": "stitch",
   "sources": [
-    "stitch-authentication-api-openapi.yml",
-    "stitch-disbursements-api-openapi.yml",
-    "stitch-financial-data-api-openapi.yml",
-    "stitch-payments-api-openapi.yml"
+    "_original/stitch-openapi.yml"
   ],
   "outputs": [
     "stitch-authentication-api-openapi.yml",
-    "stitch-disbursements-api-openapi.yml",
-    "stitch-financial-data-api-openapi.yml",
     "stitch-payments-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "stitch-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "stitch-openapi.yml: multi-axis tagging (4 tags, 2 first tags, 2.00x duplication over 2 operations) \u2014 split on first tag, 1 operations narrowed",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "stitch-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "stitch-payments-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
