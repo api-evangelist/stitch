@@ -37,7 +37,7 @@ tags:
 - Financial Data
 - Open Banking
 - Payments
-- Unified-API
+- Unified API
 - South Africa
 - Nigeria
 tags_raw:
@@ -48,6 +48,7 @@ tags_raw:
 - Unified API
 - South Africa
 - Nigeria
+- Unified-API
 url: https://raw.githubusercontent.com/api-evangelist/stitch/refs/heads/main/apis.yml
 created: '2026-03-27'
 modified: '2026-05-19'
