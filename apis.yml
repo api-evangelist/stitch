@@ -180,6 +180,12 @@ apis:
   - type: GraphQL
     url: graphql/stitch-graphql.md
 common:
+- type: Plans
+  url: plans/stitch-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/stitch-rate-limits.yml
+- type: FinOps
+  url: finops/stitch-finops.yml
 - type: AgenticAccess
   url: agentic-access/stitch-agentic-access.yml
 - type: VulnerabilityDisclosure
