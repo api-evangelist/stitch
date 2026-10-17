@@ -58,25 +58,6 @@ paths:
           description: Invalid or missing Bearer token.
 components:
   schemas:
-    GraphQLError:
-      type: object
-      properties:
-        message:
-          type: string
-        extensions:
-          type: object
-          additionalProperties: true
-    GraphQLResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          additionalProperties: true
-          description: Response data from the GraphQL operation.
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/GraphQLError'
     GraphQLRequest:
       type: object
       required:
@@ -92,6 +73,25 @@ components:
         operationName:
           type: string
           description: Named operation to execute.
+    GraphQLResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          additionalProperties: true
+          description: Response data from the GraphQL operation.
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/GraphQLError'
+    GraphQLError:
+      type: object
+      properties:
+        message:
+          type: string
+        extensions:
+          type: object
+          additionalProperties: true
   securitySchemes:
     BearerAuth:
       type: http
