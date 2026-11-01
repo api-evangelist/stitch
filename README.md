@@ -1,4 +1,4 @@
-# Stitch (stitch)
+# Stitch
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,169 +66,182 @@
 
 Stitch is an open banking and payments API platform providing unified access to financial data and payment rails across banks and financial institutions in Africa, primarily South Africa and Nigeria. Stitch enables businesses to accept payments via multiple channels, access bank account data, and issue disbursements through a single GraphQL API.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/stitch/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/stitch/refs/heads/main/apis.yml)
+**Areas:** Africa · Financial Data · Open Banking · Payments · Unified API · South Africa · Nigeria
 
-## Scope
+## Stitch on APIs.io
 
-- **Type:** Index
+Everything profiled for Stitch is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/stitch/](https://apis.io/providers/stitch/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (8)
 
-- Africa
-- Financial Data
-- Open Banking
-- Payments
-- Unified API
-- South Africa
-- Nigeria
+- [Stitch Pay By Bank](https://apis.io/apis/stitch/stitch-pay-by-bank/) — Stitch Pay By Bank enables merchants to accept instant bank transfer payments directly from customers' bank accounts in South Africa and Nigeria.
+- [Stitch Capitec Pay](https://apis.io/apis/stitch/stitch-capitec-pay/) — Stitch integration with Capitec Bank's Capitec Pay payment method, enabling customers to pay via Capitec mobile banking.
+- [Stitch Card Payments](https://apis.io/apis/stitch/stitch-card-payments/) — Stitch card payment processing enabling businesses to accept debit and credit card payments through the Stitch unified platform.
+- [Stitch DebiCheck](https://apis.io/apis/stitch/stitch-debicheck/) — Stitch DebiCheck integration providing authenticated debit orders for recurring payment collection in South Africa.
+- [Stitch Manual EFT](https://apis.io/apis/stitch/stitch-manual-eft/) — Stitch Manual EFT (Electronic Funds Transfer) enabling customers to pay via standard bank EFT with Stitch's streamlined reference management.
+- [Stitch Disbursements](https://apis.io/apis/stitch/stitch-disbursements/) — Stitch Disbursements (Payouts) API enabling businesses to programmatically send funds to bank accounts, enabling mass payments, refunds, and marketplace…
+- [Stitch Authentication API](https://apis.io/apis/stitch/stitch-authentication-api/) — OAuth 2.0 token operations.
+- [Stitch Payments API](https://apis.io/apis/stitch/stitch-payments-api/) — Payment initiation and management.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-27
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### GraphQL (1)
 
-### Stitch GraphQL API
+GraphQL schemas.
 
-The core Stitch API using GraphQL, available at api.stitch.money/graphql. Follows the Relay Server Specification for pagination. Supports all Stitch products including pay-ins, payouts, bank account data, and payments. Authentication uses OAuth 2.0 client credentials.
+- [Stitch GraphQL API](https://apis.io/graphqls/stitch/stitch-graphql/)
 
-- **Human URL:** [https://docs.stitch.money/](https://docs.stitch.money/)
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- GraphQL
-- Open Banking
-- Payments
+- [Stitch Agentic Access](https://apis.io/agentic-access/stitch/stitch-agentic-access/)
 
-#### Properties
+#### JSON Schema (10)
 
-- [Documentation](https://docs.stitch.money/)
-- [Graph Q L](https://api.stitch.money/graphql)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/stitch/refs/heads/main/openapi/stitch-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/stitch.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/stitch.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+The data models the API reads and writes.
 
-### Stitch Pay By Bank
+- [Stitch Bank Account](https://apis.io/schemas/stitch/stitch-bank-account/)
+- [BankAccount](https://apis.io/schemas/stitch/stitch-bankaccount/)
+- [Disbursement](https://apis.io/schemas/stitch/stitch-disbursement/)
+- [GraphQLError](https://apis.io/schemas/stitch/stitch-graphqlerror/)
+- [GraphQLRequest](https://apis.io/schemas/stitch/stitch-graphqlrequest/)
+- [GraphQLResponse](https://apis.io/schemas/stitch/stitch-graphqlresponse/)
+- [MoneyAmount](https://apis.io/schemas/stitch/stitch-moneyamount/)
+- [Stitch Payment Initiation Request](https://apis.io/schemas/stitch/stitch-payment/)
+- [PaymentInitiationRequest](https://apis.io/schemas/stitch/stitch-paymentinitiationrequest/)
+- [TokenResponse](https://apis.io/schemas/stitch/stitch-tokenresponse/)
 
-Stitch Pay By Bank enables merchants to accept instant bank transfer payments directly from customers' bank accounts in South Africa and Nigeria.
+#### JSON Structure (2)
 
-- **Human URL:** [https://docs.stitch.money/](https://docs.stitch.money/)
+Data models expressed in JSON Structure.
 
-#### Tags
+- [Stitch Payment Structure](https://apis.io/json-structure/stitch/stitch-payment-structure/)
+- [Stitch Structure](https://apis.io/json-structure/stitch/stitch-structure/)
 
-- Payments
-- Bank Transfer
-- Pay-ins
+#### JSON-LD (1)
 
-#### Properties
+Linked-data contexts for the provider's vocabulary.
 
-- [Documentation](https://docs.stitch.money/)
-- [Postman Collection](collections/stitch.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/stitch.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Stitch Context](https://apis.io/jsonld/stitch/stitch-context/)
 
-### Stitch Capitec Pay
+#### Vocabulary (1)
 
-Stitch integration with Capitec Bank's Capitec Pay payment method, enabling customers to pay via Capitec mobile banking.
+The provider's domain terms, defined.
 
-- **Human URL:** [https://docs.stitch.money/](https://docs.stitch.money/)
+- [Stitch Vocabulary](https://apis.io/vocabularies/stitch/stitch-vocabulary/)
 
-#### Tags
+#### Examples (2)
 
-- Payments
-- Capitec
-- South Africa
+Example requests and responses.
 
-#### Properties
+- [Stitch Executegraphql Example](https://apis.io/examples/stitch/stitch-executegraphql-example/)
+- [Stitch Initiate Payment Example](https://apis.io/examples/stitch/stitch-initiate-payment-example/)
 
-- [Documentation](https://docs.stitch.money/)
-- [Postman Collection](collections/stitch.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/stitch.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Collections (5)
 
-### Stitch Card Payments
+Postman and Open Collection request collections.
 
-Stitch card payment processing enabling businesses to accept debit and credit card payments through the Stitch unified platform.
+- [Stitch API](https://apis.io/collections/stitch/open-stitch/)
+- [Stitch Authentication API](https://apis.io/collections/stitch/open-stitch-authentication-api/)
+- [Stitch Authentication Disbursements API](https://apis.io/collections/stitch/open-stitch-disbursements-api/)
+- [Stitch Authentication Financial Data API](https://apis.io/collections/stitch/open-stitch-financial-data-api/)
+- [Stitch Authentication Payments API](https://apis.io/collections/stitch/open-stitch-payments-api/)
 
-- **Human URL:** [https://docs.stitch.money/](https://docs.stitch.money/)
+#### Governance rules (2)
 
-#### Tags
+Spectral rulesets for the provider's contracts.
 
-- Payments
-- Card Payments
-- Pay-ins
+- [Stitch — jsonschema rules](https://apis.io/rules/stitch/stitch-jsonschema-spectral-rules/)
+- [Stitch API Rules](https://apis.io/rules/stitch/stitch-rules/)
 
-#### Properties
+#### Security (3)
 
-- [Documentation](https://docs.stitch.money/)
-- [Postman Collection](collections/stitch.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/stitch.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-### Stitch DebiCheck
+- [Stitch Authentication](https://apis.io/security/stitch/stitch-authentication/)
+- [Stitch Domain Security](https://apis.io/security/stitch/stitch-domain-security/)
+- [Stitch Vulnerability Disclosure](https://apis.io/security/stitch/stitch-vulnerability-disclosure/)
 
-Stitch DebiCheck integration providing authenticated debit orders for recurring payment collection in South Africa.
+#### Plans and pricing (1)
 
-- **Human URL:** [https://docs.stitch.money/](https://docs.stitch.money/)
+Published plans, tiers and prices.
 
-#### Tags
+- [Stitch Plans Pricing](https://apis.io/plans/stitch/stitch-plans-pricing/)
 
-- Payments
-- DebiCheck
-- Recurring Payments
-- South Africa
+#### Rate limits (1)
 
-#### Properties
+Published request limits.
 
-- [Documentation](https://docs.stitch.money/)
-- [Postman Collection](collections/stitch.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/stitch.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Stitch Rate Limits](https://apis.io/rate-limits/stitch/stitch-rate-limits/)
 
-### Stitch Manual EFT
+#### FinOps (1)
 
-Stitch Manual EFT (Electronic Funds Transfer) enabling customers to pay via standard bank EFT with Stitch's streamlined reference management.
+What the API costs to run, by operation.
 
-- **Human URL:** [https://docs.stitch.money/](https://docs.stitch.money/)
+- [Stitch Finops](https://apis.io/finops/stitch/stitch-finops/)
 
-#### Tags
+## Where to find this API
 
-- Payments
-- EFT
-- Bank Transfer
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Properties
-
-- [Documentation](https://docs.stitch.money/)
-- [Postman Collection](collections/stitch.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/stitch.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Stitch Disbursements
-
-Stitch Disbursements (Payouts) API enabling businesses to programmatically send funds to bank accounts, enabling mass payments, refunds, and marketplace disbursements.
-
-- **Human URL:** [https://docs.stitch.money/](https://docs.stitch.money/)
-
-#### Tags
-
-- Payouts
-- Disbursements
-- Bank Transfer
-
-#### Properties
-
-- [Documentation](https://docs.stitch.money/)
-- [Postman Collection](collections/stitch.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/stitch.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/stitchdata)
 - [Website](https://stitch.money/)
 - [Documentation](https://docs.stitch.money/)
-- [GitHub Organization](https://github.com/stitch-money)
-- [Sign Up](https://stitch.money/contact)
-- [Status Page](https://status.stitch.money/)
-- [Features](undefined)
+- [Blog](https://stitch.money/blog)
+- [GitHub](https://github.com/stitch-money)
+- [Status](https://status.stitch.money/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 33.4** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 58.1 |
+| Contract governance | 13.6 |
+| Operational transparency | 23.7 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 21.1 |
+
+**Agent readiness 22.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 21.3** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/stitch/](https://apis.io/providers/stitch/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Stitch: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/stitch/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
